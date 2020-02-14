@@ -23,7 +23,7 @@ class PrintfulCatalog
     }
 
     /**
-     * Retrieve country list (with states)
+     * Retrieve product list
      * @return Product[]
      */
     public function getProducts()
@@ -51,10 +51,10 @@ class PrintfulCatalog
 			'offset' => $offset,
 			'limit' => $limit,
 		];
-		$rawOrders = $this->printfulClient->get('products', $params);
+		$rawProducts = $this->printfulClient->get('products', $params);
 		$total = $this->printfulClient->getItemCount();
 
-		return new ProductList($rawOrders, $total, $offset);
+		return new ProductList($rawProducts, $total, $offset);
 	}
 
 	/**
@@ -70,14 +70,14 @@ class PrintfulCatalog
 	}
 
 	/**
+	 * @param int $id
 	 * @return ProductVariantList
+	 * @throws Exceptions\PrintfulApiException
+	 * @throws Exceptions\PrintfulException
 	 */
 	public function getProductVariantList($id = 71)
 	{
 		$response = $this->printfulClient->get('products' . '/' . $id);
-//		$result = SyncProductRequestResponse::fromArray($response);
-		$result = new ProductVariantList($response['variants'], count($response['variants']));
-
-		return $result;
+		return new ProductVariantList($response['product'], $response['variants'], count($response['variants']));
 	}
 }
