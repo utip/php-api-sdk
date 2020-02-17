@@ -166,6 +166,7 @@ class PrintfulMockupGenerator
                 'image_url' => $file->imageUrl,
             ];
 
+			$re['position'] = [];
             if ($file->position) {
                 $re['position'] = $file->position->toArray();
             }
