@@ -69,16 +69,24 @@ class OrderCreationParameters
      * Original retail costs in USD that are to be displayed on the packing slip for international shipments.
      * Retail costs are used only if every item in order contains the retail_price attribute.
      *
+     * @param float $total
+     * @param float $subTotal
      * @param float $discount
      * @param float $shipping
+     * @param string $currency
      * @param float $tax
+     * @param float $vat
      */
-    public function addRetailCosts($discount, $shipping, $tax)
+    public function addRetailCosts($total, $subTotal, $discount, $shipping, $currency, $tax = 0.0, $vat = 0.0)
     {
         $this->retailCosts = [
+            'total' => $total,
+            'subtotal' => $subTotal,
             'discount' => $discount,
             'shipping' => $shipping,
             'tax' => $tax,
+            'vat' => $vat,
+            'currency' => $currency,
         ];
     }
 

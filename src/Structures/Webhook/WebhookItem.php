@@ -16,6 +16,8 @@ class WebhookItem extends BaseItem
     const TYPE_ORDER_CANCELED = 'order_canceled';
     /** Is called when a new product or variant is imported from store's e-commerce integration. */
     const TYPE_PRODUCT_SYNCED = 'product_synced';
+    /** Is called when product is updated. */
+    const TYPE_PRODUCT_UPDATED = 'product_updated';
     /** Is called when stock is updated for some of product's variants. */
     const TYPE_STOCK_UPDATED = 'stock_updated';
     /** Is called when order is put on hold. */

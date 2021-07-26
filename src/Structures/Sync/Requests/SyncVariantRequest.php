@@ -65,10 +65,13 @@ class SyncVariantRequest
     /**
      * Returns SyncVariantRequestOption array added to SyncVariantRequest
      *
-     * @return SyncVariantRequestOption[]|null
+     * @return SyncVariantRequestOption[]
      */
     public function getOptions()
     {
+		if (is_null($this->options)) {
+			$this->options = [];
+		}
         return $this->options;
     }
 

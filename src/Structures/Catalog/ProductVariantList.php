@@ -9,19 +9,26 @@ class ProductVariantList
      */
     public $total;
 
+	/**
+	 * @var Product
+	 */
+    public $product;
+
     /**
      * @var array
      */
     public $variants = [];
 
-    /**
-     * @param array $rawProducts
-     * @param int $total
-     * @param int $offset
-     */
-    public function __construct(array $rawVariants, $total)
+	/**
+	 * @param array $rawProduct
+	 * @param array $rawVariants
+	 * @param int $total
+	 */
+    public function __construct(array $rawProduct, array $rawVariants, $total)
     {
         $this->total = $total;
+
+        $this->product = Product::fromArray($rawProduct);
 
         foreach ($rawVariants as $v) {
             $this->variants[] = ProductVariant::fromArray($v);

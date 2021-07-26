@@ -127,7 +127,7 @@ class OrderCreationAndRetrievalTest extends TestCase
 
         $params->addPackingSlip('test@example.com', '111-222-3333', 'Message text');
         $params->addGift('New Gift', 'Gift message');
-        $params->addRetailCosts(5.01, 4.01, 2.01);
+        $params->addRetailCosts(25,23.99,5.01, 4.01, 'USD', 2.01);
 
         $recipientParams = new RecipientCreationParameters;
         $recipientParams->address1 = '98 NW. State Street';
@@ -140,7 +140,7 @@ class OrderCreationAndRetrievalTest extends TestCase
 
         $itemParams = new OrderItemCreationParameters;
         $itemParams->externalId = '1ax';
-        $itemParams->variantId = 256;
+        $itemParams->variantId = 8004;
         $itemParams->quantity = rand(1, 3);
         $itemParams->retailPrice = 20.00;
         $itemParams->name = 'Some item name';
