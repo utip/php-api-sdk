@@ -44,7 +44,7 @@ class OrderItemCreationParameters
     /**
      * @var File[]
      */
-    private $files = [];
+    private ?File $files = null;
 
     /**
      * @var OrderItemOption[]
