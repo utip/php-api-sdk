@@ -44,7 +44,7 @@ class OrderItemCreationParameters
     /**
      * @var File[]
      */
-    private $files = [];
+    private ?array $files = [];
 
     /**
      * @var OrderItemOption[]
@@ -118,5 +118,10 @@ class OrderItemCreationParameters
             'files' => $this->files,
             'options' => $this->options,
         ];
+    }
+
+    public function setFilesToNull()
+    {
+	$this->files = null;
     }
 }
